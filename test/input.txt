@@ -1,0 +1,103 @@
+import { Modal, Row, Col, Icon, Popconfirm, } from 'antd';
+import { FormattedMessage, injectIntl, } from 'react-intl';
+import { Table, registerTable, UtilTool, JsonResult, } from '../common/index';
+import moment from 'moment';
+import objectAssign from "object-assign";
+import FilterPanel from "./filterPanel";
+import Assign from './assign';
+import flux from './flux';
+
+UtilTool.formatMessage("index.table-title-url","操作路径",
+const confirm = Modal.confirm;
+
+class TableImpl extends Table {
+	defaultParams = () => {
+		return {
+		}
+	}
+	filterPanel = () => {
+		let defaultParams = this.defaultParams();
+		return (
+			<FilterPanel 
+				defaultValue={{}} 
+				filterHandler={this.filterHandler}
+				intl={this.props.intl}
+				refreshHandler={this.refreshHandler}
+				searchParams={this.state.search} >
+			</FilterPanel>
+		);
+	}
+	handleModifyClick(r) {
+		flux.showEditor({id: r.id});
+	}
+	// handleDeleteClick(r) {
+	// 	let {intl: {formatMessage}} = this.props;
+	// 	let self = this;
+	// 	confirm({
+	// 	    title: formatMessage({id: "Modal.confirm.delete-title", defaultMessage: "您是否确认要删除这项内容"}) + '?',
+	// 	    onOk() {
+	// 	    	flux.actions.delete({id: r.id}, result => {
+	// 	    		UtilTool.success(formatMessage({id: "Modal.confirm.delete-success", defaultMessage: "已删除"}));
+	// 	    		self.refreshHandler();
+	// 	    	}, error => {
+	// 	    		UtilTool.error(formatMessage({id: "Modal.confirm.delete-error", defaultMessage: "删除失败"}) + "：" + error);
+	// 	    	});
+	// 	    },
+	// 	    onCancel() {},
+	// 	});		
+	// }
+	handleResetClick = (r) => {
+		let {intl: {formatMessage}} = this.props;
+    	flux.actions.reset({id: r.id}, result => {
+    		UtilTool.success(formatMessage({id: "Success", defaultMessage: "成功"}));
+    	}, error => {
+    		UtilTool.error(formatMessage({id: "Fail", defaultMessage: "失败"}) + "：" + error);
+    		formatMessage({id: "Fail", defaultMessage: "失败"}) + "：" + error);
+    	});
+	}
+	handleAssignClick = (r) => {
+		flux.showAssign(r);
+	}
+	defineColumns = () => {
+		let {intl: {formatMessage}} = this.props;
+		const columns = [
+		    { title: formatMessage({id: "index.table-title-account", defaultMessage: "登录账号"}), dataIndex: 'account', sorter: false},
+		    { title: formatMessage({id: "index.table-title-account", defaultMessage: "登录账号2"}), dataIndex: 'account', sorter: false},
+		    { title: formatMessage({id: "index.table-title-name", defaultMessage: "员工姓名"}), dataIndex: 'name', sorter: false},		
+		    { title: formatMessage({id: "index.table-title-mail", defaultMessage: "员工邮箱"}), dataIndex: 'mail', sorter: false},
+		    { title: formatMessage({id: "index.table-title-createTime", defaultMessage: "创建时间"}), dataIndex: 'createTime', sorter: false},
+		    { title: formatMessage({id: "Table.title-operate", defaultMessage: "操作"}), dataIndex: 'OP', sorter: false, render: (text, record) => {
+                let op = [];
+				op.push(<a onClick={this.handleModifyClick.bind(this, record, "edit")} ><Icon type="edit" /> 
+					<FormattedMessage id="Table.title-operate.modify" defaultMessage="修改" />  
+				</a>, " | ");
+				op.push(<Popconfirm 
+							title={formatMessage({id: "Modal.confirm.delete-title", defaultMessage: "您是否确认要删除这项内容"}) + '?'}
+							onConfirm={this.handleResetClick.bind(this, record, "reset")} 
+						>
+					<a href=""> <Icon type="key" /> <FormattedMessage id="index.title-operate.reset" defaultMessage="重置密码" />  </a>
+				</Popconfirm>, " | ");
+				op.push(<a onClick={this.handleAssignClick.bind(this, record, "assign")} ><Icon type="setting" /> 
+					<FormattedMessage id="index.title-operate.assign" defaultMessage="角色分配" />  
+				</a>, " | ");
+                // op.push(<a onClick={this.handleDeleteClick.bind(this, record, "delete")} ><Icon type="delete" /> 
+                // 	<FormattedMessage id="Table.title-operate.delete" defaultMessage="删除" /> 
+                // </a>, " | ");
+                op.pop();
+            	return op;
+		    }},
+		]; 
+		return columns;
+	}
+}
+
+export default injectIntl(class Index extends React.PureComponent {
+	render() {
+		return (
+			<div>
+				<TableImpl hidePagination={true} bordered={true} method={flux.actions.list} init={true} intl={this.props.intl}></TableImpl>				
+				<Assign intl={this.props.intl} ></Assign>
+			</div>
+		);
+	}
+});

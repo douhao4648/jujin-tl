@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+
+program
+    .option('-i, --input <input>', 'build source path')
+    .option('-o, --output <output>', 'build target path')
+    .parse(process.argv);
+
+require('../lib/build')(
+    program.input || './',
+    program.output || './dist',
+);

@@ -1,0 +1,21 @@
+{
+  "name": "jujin-tl",
+  "version": "1.0.0",
+  "description": "Developement Tool for JuJin Company's Multilanguage Files",
+  "main": "build.js",
+  "scripts": {
+    "jjtl": "./bin/jjtl"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/douhao4648/jujin-tl.git"
+  },
+  "author": "MGT",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.18.0",
+    "cross-spawn": "^6.0.5",
+    "mkdirp": "^0.5.1",
+    "translation.js": "^0.7.5"
+  }
+}
