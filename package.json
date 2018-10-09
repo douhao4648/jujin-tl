@@ -1,6 +1,6 @@
 {
   "name": "jujin-tl",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Developement Tool for JuJin Company's Multilanguage Files",
   "main": "build.js",
   "scripts": {},

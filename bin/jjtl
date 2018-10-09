@@ -10,6 +10,7 @@ program
     .usage('<command> [options]')
     .option('-i, --input <input>', 'build source path')
     .option('-o, --output <output>', 'build target path')
+    .option('-d, --directly', 'build target directly')
     .on('--help', printHelp)
     .parse(process.argv);
 

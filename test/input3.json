@@ -1,0 +1,71 @@
+{
+
+    "Filter.SelectSearch.placeholder": "请选择",
+    "Filter.InputSearch.placeholder": "输入关键字搜索",
+    "Filter.RangeSearch.placeholder-begin": "开始日期",
+    "Filter.RangeSearch.placeholder-end": "结束日期",
+    "Filter.RangeSearch.click-meta-today": "今日",
+    "Filter.RangeSearch.click-meta-30days": "30日",
+    "Filter.RangeSearch.click-meta-1year": "一年",
+
+    "Modal.AbstractEditor.modify-title": "修改",
+
+    "Layout.ChangePassword.confirm-password-require": "请再次输入新密码",
+    "Layout.ChangePassword.confirm-password": "确认密码",
+    "Layout.ChangePassword.new-password-require": "输入新密码",
+    "Layout.ChangePassword.new-password-limit-length": "请输入至少为8个字符的新密码",
+    "Layout.ChangePassword.new-password": "新密码",
+    "Layout.ChangePassword.old-password-require": "请输入原密码",
+    "Layout.ChangePassword.old-password": "旧密码",
+    "Layout.ChangePassword.password-modify": "修改密码",
+    "Layout.ChangePassword.password-modify-success": "修改密码成功",
+    "Layout.ChangePassword.password-modify-error": "修改密码出错",
+    "Layout.ChangePassword.password-digital": "至少包含一个数字",
+    "Layout.ChangePassword.password-lowercase": "至少包含一个小写字母",
+    "Layout.ChangePassword.password-uppercase": "至少包含一个大写字母",
+    "Layout.ChangePassword.password-duplicated-character": "包含的重复字符太多",
+    "Layout.ChangePassword.password-the-same": "新密码不能与旧密码相同",
+    "Layout.ChangePassword.password-unknown-character": "无法识别的字符",
+    "Layout.ChangePassword.password-inconformity": "两次输入的密码不一致",
+    "Layout.ChangePassword.password-l": "低",
+    "Layout.ChangePassword.password-m": "中",
+    "Layout.ChangePassword.password-h": "高",
+    "Layout.Header.login-error": "退出登录错误",
+    "Layout.Header.quit": "退出",
+    "Layout.Header.menu-list": "菜单列表",
+    "Layout.Header.change-password": "修改密码",
+    "Layout.Header.unknown-account": "未知账号",
+
+    "Unit.Open": "开",
+    "Unit.Close": "关",
+    "Unit.Yes": "是",
+    "Unit.No": "否",
+    "Unit.Point": "点",
+    "Unit.Times": "次",
+    "Unit.Seconds": "秒",
+    "Unit.SingleAmount": "单量",
+
+    "Notification.title": "通知",
+
+    "Modal.confirm.delete-title": "您是否确认要删除这项内容",
+    "Modal.confirm.delete-success": "已删除",
+    "Modal.confirm.delete-error": "删除失败",
+
+    "Success": "成功",
+    "Fail": "失败",
+
+    "Form.unvalidated-error": "请先按错误提示修改数据后再保存",
+    "Form.save-success": "已保存",
+    "Form.save-error": "保存失败",
+    "Form.placeholder-prefix": "请填写",
+    "LoadData.error": "加载数据出错",
+
+    "Table.list-error": "加载「{methodMame}」列表数据出错",
+    "Table.pagination-total": "共 {total} 条记录",
+    "Table.title-operate": "操作",
+    "Table.title-operate.modify": "修改",
+    "Table.title-operate.delete": "删除",
+
+    "JsonResult.request-error": "请求错误"
+
+}
