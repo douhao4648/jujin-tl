@@ -6,10 +6,12 @@ program
     .option('-i, --input <input>', 'build source path')
     .option('-o, --output <output>', 'build target path')
     .option('-d, --directly', 'build target directly')
+    .option('-t, --type <type>', 'build from google/baidu/youdao => g/b/y')
     .parse(process.argv);
 
 require('../lib/build')(
     program.input || './',
     program.output || './dist',
     !!program.directly,
+    program.type || 'g',
 );

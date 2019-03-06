@@ -11,6 +11,7 @@ program
     .option('-i, --input <input>', 'build source path')
     .option('-o, --output <output>', 'build target path')
     .option('-d, --directly', 'build target directly')
+    .option('-t, --type <type>', 'build from google/baidu/youdao => g/b/y')
     .on('--help', printHelp)
     .parse(process.argv);
 
